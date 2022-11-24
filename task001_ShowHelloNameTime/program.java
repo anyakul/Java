@@ -1,5 +1,4 @@
-/*1. В консоли запросить имя пользователя. В зависимости от
-текущего времени, вывести приветствие вида
+/*1. В консоли запросить имя пользователя. В зависимости от текущего времени, вывести приветствие вида
 "Доброе утро, <Имя>!", если время от 05:00 до 11:59
 "Добрый день, <Имя>!", если время от 12:00 до 17:59;
 "Добрый вечер, <Имя>!", если время от 18:00 до 22:59;
@@ -16,13 +15,12 @@ public class program {
         Scanner iScanner = new Scanner(System.in);
         System.out.printf("name: ");
         String name = iScanner.nextLine();
-        String dayTime = checkTime();
-        String greeting = getGreeting(dayTime);
+        String greeting = getGreeting();
         System.out.println(greeting + ", " + name + "!");
         iScanner.close();
     }
 
-    public static String checkTime() {
+    public static String getGreeting() {
         LocalTime timeMorningStart = LocalTime.parse("05:00:00");
         LocalTime timeMorningEnd = LocalTime.parse("11:59:59");
         LocalTime timeDayStart = LocalTime.parse("12:00:00");
@@ -32,38 +30,18 @@ public class program {
         LocalTime timeNightStart = LocalTime.parse("23:00:00");
         LocalTime timeNightEnd = LocalTime.parse("04:59:59");
         LocalTime timeNow = LocalTime.now();
-        String dayTime = "";
+        String greeting = "";
 
         if (timeNow.isAfter(timeMorningStart) && timeNow.isBefore(timeMorningEnd)) {
-            dayTime = "morning";
+            greeting = "Доброе утро";
         } else if (timeNow.isAfter(timeDayStart) && timeNow.isBefore(timeDayEnd)) {
-            dayTime = "day";
+            greeting = "Добрый день";
         } else if (timeNow.isAfter(timeEveningStart) && timeNow.isBefore(timeEveningEnd)) {
-            dayTime = "evening";
+            greeting = "Добрый вечер";
         } else if (timeNow.isAfter(timeNightStart) && timeNow.isBefore(timeNightEnd)) {
-            dayTime = "night";
+            greeting = "Доброй ночи";
         }
 
-        return dayTime;
-    }
-
-    static String getGreeting(String dayTime) {
-        String res = "";
-        switch (dayTime) {
-            case "morning":
-                res = "Доброе утро";
-                break;
-            case "day":
-                res = "Добрый день";
-                break;
-            case "evening":
-                res = "Добрый вечер";
-                break;
-            case "night":
-                res = "Доброй ночи";
-                break;
-        }
-
-        return res;
+        return greeting;
     }
 }
