@@ -21,24 +21,16 @@ public class program {
     }
 
     public static String getGreeting() {
-        LocalTime timeMorningStart = LocalTime.parse("05:00:00");
-        LocalTime timeMorningEnd = LocalTime.parse("11:59:59");
-        LocalTime timeDayStart = LocalTime.parse("12:00:00");
-        LocalTime timeDayEnd = LocalTime.parse("17:59:59");
-        LocalTime timeEveningStart = LocalTime.parse("18:00:00");
-        LocalTime timeEveningEnd = LocalTime.parse("22:59:59");
-        LocalTime timeNightStart = LocalTime.parse("23:00:00");
-        LocalTime timeNightEnd = LocalTime.parse("04:59:59");
         LocalTime timeNow = LocalTime.now();
         String greeting = "";
 
-        if (timeNow.isAfter(timeMorningStart) && timeNow.isBefore(timeMorningEnd)) {
+        if (timeNow.isAfter(LocalTime.of(5, 00, 00)) && timeNow.isBefore(LocalTime.of(11, 59, 59))) {
             greeting = "Доброе утро";
-        } else if (timeNow.isAfter(timeDayStart) && timeNow.isBefore(timeDayEnd)) {
+        } else if (timeNow.isAfter(LocalTime.of(12, 00, 00)) && timeNow.isBefore(LocalTime.of(17, 59, 59))) {
             greeting = "Добрый день";
-        } else if (timeNow.isAfter(timeEveningStart) && timeNow.isBefore(timeEveningEnd)) {
+        } else if (timeNow.isAfter(LocalTime.of(18, 00, 00)) && timeNow.isBefore(LocalTime.of(22, 59, 59))) {
             greeting = "Добрый вечер";
-        } else if (timeNow.isAfter(timeNightStart) && timeNow.isBefore(timeNightEnd)) {
+        } else if (timeNow.isAfter(LocalTime.of(23, 00, 00)) && timeNow.isBefore(LocalTime.of(4, 59, 59))) {
             greeting = "Доброй ночи";
         }
 
