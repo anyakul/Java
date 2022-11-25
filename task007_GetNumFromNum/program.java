@@ -24,6 +24,7 @@ public class program {
         System.out.print("d: ");
         int d = iScanner.nextInt();
         ArrayList<String> res = GetArr(a, b, c, d);
+
         if (a > b) {
             System.out.println("Из числа " + a + " получить " + b + " нельзя");
         } else if (a == b) {
