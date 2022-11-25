@@ -1,19 +1,16 @@
+/* 5. Во фразе "Добро пожаловать на курс по Java" переставить слова в обратном порядке */
+
 package task005_ReverseString;
 
 import java.util.Scanner;
 
 public class program {
     public static void main(String[] args) {
-        String str = getString();
-        System.out.println(ReverseString(str));
-    }
-
-    static String getString() {
         Scanner iScanner = new Scanner(System.in);
         System.out.print("Введите строку слов: ");
         String str = iScanner.nextLine();
         iScanner.close();
-        return str;
+        System.out.println(ReverseString(str));
     }
 
     static String ReverseString(String str) {
