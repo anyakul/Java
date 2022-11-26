@@ -42,6 +42,7 @@ public class program {
     static int[] SortArr(int[] arr) {
         boolean sorted = false;
         int temp;
+
         while (!sorted) {
             sorted = true;
             for (int i = 0; i < arr.length - 1; i++) {
