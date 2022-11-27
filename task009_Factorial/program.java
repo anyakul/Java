@@ -9,8 +9,10 @@ public class program {
         Scanner iScanner = new Scanner(System.in);
         System.out.print("Число: ");
         int num = iScanner.nextInt();
-        int res = GetFactorial(num);
-        System.out.println("Факториал числа " + num + " = " + res);
+        int resFact = GetFactorial(num);
+        System.out.println("Факториал числа " + num + " = " + resFact);
+        int res_tr = GetTriangularNumber(num);
+        System.out.println("n-ое треугольного числа " + num + " = " + res_tr);
         iScanner.close();
     }
 
@@ -25,6 +27,14 @@ public class program {
             }
         }
 
+        return res;
+    }
+
+    static int GetTriangularNumber(int num) {
+        int res = 0;
+        for (int i = 1; i <= num; i++) {
+            res += i;
+        }
 
         return res;
     }
