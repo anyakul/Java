@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-11-28T10:04:10.429148600Z</date>
+  <millis>1669629850429</millis>
+  <nanos>148600</nanos>
+  <sequence>0</sequence>
+  <logger>examples.example028_ApiLogging.program</logger>
+  <level>WARNING</level>
+  <class>examples.example028_ApiLogging.program</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Тестовое логирование 1</message>
+</record>
+<record>
+  <date>2022-11-28T10:04:10.490421900Z</date>
+  <millis>1669629850490</millis>
+  <nanos>421900</nanos>
+  <sequence>1</sequence>
+  <logger>examples.example028_ApiLogging.program</logger>
+  <level>INFO</level>
+  <class>examples.example028_ApiLogging.program</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Тестовое логирование 2</message>
+</record>
+</log>
