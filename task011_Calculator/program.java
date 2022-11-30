@@ -1,9 +1,12 @@
-//11. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *)
+//11. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). Добавить логирование
 
 package task011_Calculator;
 
 import java.util.Scanner;
 import java.util.LinkedList;
+
+import java.io.IOException;
+import java.util.logging.*;
 
 public class program {
     public static void main(String[] args) {
@@ -12,6 +15,7 @@ public class program {
         String text = iScanner.nextLine();
         int res = GetRes(text);
         System.out.println("Ответ " + res);
+        Logging(text + " = " + "" + res);
         iScanner.close();
     }
 
@@ -90,5 +94,22 @@ public class program {
             processOperator(st, op.removeLast());
 
         return st.get(0);
+    }
+
+    static void Logging(String str) {
+        Logger logger = Logger.getLogger(program.class.getName());
+        ConsoleHandler ch = new ConsoleHandler();
+        FileHandler fh;
+        try {
+            fh = new FileHandler("task011_Calculator/log.txt");
+            logger.addHandler(ch);
+            logger.addHandler(fh);
+
+            SimpleFormatter sFormat = new SimpleFormatter();
+            fh.setFormatter(sFormat);
+            logger.info(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
