@@ -27,6 +27,7 @@ public class program {
     static ArrayList<HashMap<String, String>> GetDict() {
         ArrayList<HashMap<String, String>> arr = new ArrayList<>();
         HashMap<String, String> dict = new HashMap<String, String>();
+
         try {
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("/task021_MapText/data.json");

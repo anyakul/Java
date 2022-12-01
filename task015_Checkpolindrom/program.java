@@ -8,10 +8,11 @@ import java.util.Scanner;
 public class program {
     public static void main(String[] args) {
         Scanner iScanner = new Scanner(System.in);
-        System.out.print("Строка c повторяющимися символами: ");
+        System.out.print("Строка: ");
         String str = iScanner.nextLine();
         iScanner.close();
         boolean res = CheckPolindrom(str);
+
         if (res) {
             System.out.println("Да, строка " + str + " полиндром");
         } else {
@@ -24,6 +25,7 @@ public class program {
         boolean res = false;
         int j = str.length() - 1;
         int str_len = str.length() / 2;
+
         if (str_len % 2 == 1) {
             str_len += 1;
         }

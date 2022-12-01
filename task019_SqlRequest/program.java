@@ -55,7 +55,6 @@ public class program {
 
     static StringBuilder GetSqlRequest(Map<String, String> dict) {
         StringBuilder res = new StringBuilder();
-
         StringJoiner res_joiner = new StringJoiner(" and ");
         String str = "select * from students where ";
         res.append(str);
