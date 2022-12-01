@@ -18,12 +18,15 @@ public class program {
 
     static String GetPrefix(String arr[]) {
         String prefix = arr[0];
-        for (var str : arr)
+
+        for (var str : arr) {
             while (str.indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
                 if (prefix.isEmpty())
                     return "";
             }
+        }
+
         return prefix;
     }
 }

@@ -15,12 +15,12 @@ public class program {
         Scanner iScanner = new Scanner(System.in);
         System.out.printf("name: ");
         String name = iScanner.nextLine();
-        String greeting = getGreeting();
+        String greeting = GetGreeting();
         System.out.println(greeting + ", " + name + "!");
         iScanner.close();
     }
 
-    public static String getGreeting() {
+    public static String GetGreeting() {
         LocalTime timeNow = LocalTime.now();
         String greeting = "";
 
