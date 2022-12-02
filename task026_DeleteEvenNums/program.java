@@ -1,6 +1,6 @@
-/* 27. Пусть дан произвольный список целых чисел, удалить из него четные числа */
+/* 26. Пусть дан произвольный список целых чисел, удалить из него четные числа */
 
-package task027_DeleteEvenNums;
+package task026_DeleteEvenNums;
 
 import java.util.ArrayList;
 import java.util.List;

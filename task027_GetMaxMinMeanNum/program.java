@@ -1,6 +1,6 @@
-/* 28. Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее из этого списка */
+/* 27. Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее из этого списка */
 
-package task028_GetMaxMinMeanNum;
+package task027_GetMaxMinMeanNum;
 
 import java.util.ArrayList;
 import java.util.Random;

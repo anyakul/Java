@@ -1,6 +1,6 @@
-/* 26. Реализовать алгоритм сортировки слиянием */
+/* 25. Реализовать алгоритм сортировки слиянием */
 
-package task026_SortMerger;
+package task025_SortMerger;
 
 import java.util.ArrayList;
 import java.util.List;
