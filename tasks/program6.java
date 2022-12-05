@@ -1,12 +1,12 @@
 /* 6. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). Добавить логирование. Добавить возможность удалить последнюю операцию */
 
-package task011_Calculator;
+package tasks;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class program {
+public class program6 {
     public static void main(String[] args) {
         float res = Calc();
         System.out.println("Результат " + res);
