@@ -1,4 +1,4 @@
-/* 6. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). Добавить логирование. Добавить возможность удалить последнюю операцию */
+/* 11. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). Добавить логирование. Добавить возможность удалить последнюю операцию */
 
 package task011_Calculator;
 
@@ -21,11 +21,9 @@ public class program {
         Scanner iScanner = new Scanner(System.in);
         System.out.print("Число: ");
         String str = iScanner.nextLine();
-        try {
+        if (str.chars().allMatch(Character::isDigit)) {
             res = Float.parseFloat(str);
             lst.add(str);
-        } catch (NumberFormatException e) {
-            System.out.println("Число:");
         }
 
         while (!str.equals("=")) {
