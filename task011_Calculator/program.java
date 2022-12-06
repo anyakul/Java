@@ -1,115 +1,83 @@
-//11. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). Добавить логирование
+/* 11. Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). Добавить логирование. Добавить возможность удалить последнюю операцию */
 
 package task011_Calculator;
 
-import java.util.Scanner;
+import java.util.Arrays;
 import java.util.LinkedList;
-
-import java.io.IOException;
-import java.util.logging.*;
+import java.util.Scanner;
 
 public class program {
     public static void main(String[] args) {
+        float res = Calc();
+        System.out.println("Результат " + res);
+    }
+
+    static float Calc() {
+        float res = 0;
+        String[] signs = new String[] { "+", "-", "*", "/" };
+        System.out.print(
+                "Калькулятор. Действия - + - * /, отменить последнюю операцию - d, вывести результат и завершить - =:\n ");
+        LinkedList<String> lst = new LinkedList<String>();
         Scanner iScanner = new Scanner(System.in);
-        System.out.print("Пример: ");
-        String text = iScanner.nextLine();
-        int res = GetRes(text);
-        System.out.println("Ответ " + res);
-        Logging(text + " = " + "" + res);
-        iScanner.close();
-    }
-
-    static boolean isDelim(char c) {
-        return c == ' ';
-    }
-
-    static boolean isOperator(char c) {
-        return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
-    }
-
-    static int priority(char op) {
-        switch (op) {
-            case '+':
-            case '-':
-                return 1;
-            case '*':
-            case '/':
-            case '%':
-                return 2;
-            default:
-                return -1;
+        System.out.print("Число: ");
+        String str = iScanner.nextLine();
+        if (str.chars().allMatch(Character::isDigit)) {
+            res = Float.parseFloat(str);
+            lst.add(str);
         }
-    }
 
-    static void processOperator(LinkedList<Integer> st, char op) {
-        int r = st.removeLast();
-        int l = st.removeLast();
-        switch (op) {
-            case '+':
-                st.add(l + r);
-                break;
-            case '-':
-                st.add(l - r);
-                break;
-            case '*':
-                st.add(l * r);
-                break;
-            case '/':
-                st.add(l / r);
-                break;
-            case '%':
-                st.add(l % r);
-                break;
-        }
-    }
-
-    static int GetRes(String s) {
-        LinkedList<Integer> st = new LinkedList<Integer>();
-        LinkedList<Character> op = new LinkedList<Character>();
-
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (isDelim(c))
-                continue;
-            if (c == '(')
-                op.add('(');
-            else if (c == ')') {
-                while (op.getLast() != '(')
-                    processOperator(st, op.removeLast());
-                op.removeLast();
-            } else if (isOperator(c)) {
-                while (!op.isEmpty() && priority(op.getLast()) >= priority(c))
-                    processOperator(st, op.removeLast());
-                op.add(c);
+        while (!str.equals("=")) {
+            if (Arrays.asList(signs).contains(lst.getLast())) {
+                System.out.print("Число: ");
+                str = iScanner.nextLine();
+                if (str.equals("d")) {
+                    lst.removeLast();
+                } else if (str.chars().allMatch(Character::isDigit)) {
+                    if (str.equals("0") && lst.getLast().equals("/")) {
+                        System.out.print("На 0 делить нельзя. Введите другое число: ");
+                    }
+                    Float.parseFloat(str);
+                    res = checkOp(res, Float.parseFloat(str), lst.getLast());
+                    lst.add(str);
+                    lst.add("" + res);
+                }
+                System.out.println("Результат " + res);
             } else {
-                String operand = "";
-                while (i < s.length() && Character.isDigit(s.charAt(i)))
-                    operand += s.charAt(i++);
-                --i;
-                st.add(Integer.parseInt(operand));
+                System.out.print("Знак операции: ");
+                str = iScanner.nextLine();
+                if (str.equals("d")) {
+                    lst.removeLast();
+                    lst.removeLast();
+                    lst.removeLast();
+                    res = Float.parseFloat(lst.getLast());
+                    System.out.println("Результат " + res);
+                } else if (Arrays.asList(signs).contains(str)) {
+                    lst.add(str);
+                }
             }
         }
+        iScanner.close();
 
-        while (!op.isEmpty())
-            processOperator(st, op.removeLast());
-
-        return st.get(0);
+        return res;
     }
 
-    static void Logging(String str) {
-        Logger logger = Logger.getLogger(program.class.getName());
-        ConsoleHandler ch = new ConsoleHandler();
-        FileHandler fh;
-        try {
-            fh = new FileHandler("task011_Calculator/log.txt");
-            logger.addHandler(ch);
-            logger.addHandler(fh);
-
-            SimpleFormatter sFormat = new SimpleFormatter();
-            fh.setFormatter(sFormat);
-            logger.info(str);
-        } catch (IOException e) {
-            e.printStackTrace();
+    static float checkOp(float res, float num, String sign) {
+        float result = 0;
+        switch (sign) {
+            case "+":
+                result = res + num;
+                break;
+            case "-":
+                result = res - num;
+                break;
+            case "*":
+                result = res * num;
+                break;
+            case "/":
+                result = res / num;
+                break;
         }
+
+        return result;
     }
 }
