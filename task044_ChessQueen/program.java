@@ -2,56 +2,125 @@
 
 package task044_ChessQueen;
 
-import java.util.HashMap;
 import java.util.Random;
 
 public class program {
     public static void main(String[] args) {
-        HashMap<Integer, Integer> lst = GetRandomArray();
-        System.out.println(lst);
-        GetChessField(lst);
+        String[][] lst = GetRandomArray();
+
+        for (String[] row : lst) {
+            printRow(row);
+        }
     }
 
-    static HashMap<Integer, Integer> GetRandomArray() {
-        HashMap<Integer, Integer> lst = new HashMap<>();
-        Random rand = new Random();
-        int move = 0;
-        int i = 0;
+    public static void printRow(String[] row) {
+        for (String i : row) {
+            System.out.print(i);
+        }
+        System.out.println();
+    }
 
-        while (move < 8) {
-            int num = rand.nextInt(0, 8);
-            while (lst.containsValue(num)) {
-                num = rand.nextInt(0, 8);
-                i += 1;
-            }
-            lst.put(move, num);
-            move += 1;
+    public static void printboolean(boolean[] row) {
+        for (boolean i : row) {
+            System.out.print(i);
+        }
+        System.out.println();
+    }
+
+    static String[][] GetRandomArray() {
+        boolean[][] boolArr = GetBoolArray();
+        String[][] arr = new String[8][8];
+
+        for (boolean[] row : boolArr) {
+            printboolean(row);
         }
 
-        return lst;
-    }
-
-    public static boolean checkDiagonal(HashMap<Integer, Integer> lst, int checkValue) {
-        for (int i = checkValue; i < 8; i++) {
-            if (lst.containsKey(i + 1) || lst.containsValue(i + 1)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    static void GetChessField(HashMap<Integer, Integer> lst) {
-        StringBuilder str = new StringBuilder();
         for (int i = 0; i < 8; i++) {
+            int num = getNum(boolArr, i);
+            UpdateBoard(boolArr, i, num);
             for (int j = 0; j < 8; j++) {
-                if (lst.containsKey(i) && lst.get(i) == j) {
-                    str.append("  F  ");
+                if (j == num) {
+                    arr[i][j] = "  F  ";
                 } else {
-                    str.append(" " + i + ":" + j + " ");
+                    arr[i][j] = " " + i + ":" + j + " ";
                 }
             }
-            str.append("\n");
         }
-        System.out.println(str);
+
+        return arr;
+    }
+
+    static int getNum(boolean[][] boolArr, int i) {
+        Random rand = new Random();
+        int num = rand.nextInt(8);
+        boolean bool = boolArr[i][num];
+        while (!bool) {
+            bool = boolArr[i][num];
+            num = rand.nextInt(8);
+            bool = boolArr[i][num];
+
+            if (bool) {
+                break;
+            }
+        }
+
+
+        return num;
+    }
+
+    static boolean[][] GetBoolArray() {
+        boolean[][] boolArr = new boolean[8][8];
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                boolArr[i][j] = true;
+            }
+        }
+
+        return boolArr;
+    }
+
+    static void UpdateBoard(boolean[][] boolArr, int row, int col) {
+        int r = row;
+        int c = col;
+        for (int j = 0; j < 8; j++) {
+            boolArr[r][j] = false;
+        }
+
+        for (int j = 0; j < 8; j++) {
+            boolArr[j][c] = false;
+        }
+
+        r = row;
+        c = col;
+        while (r >= 0 && c >= 0) {
+            boolArr[r][c] = false;
+            r--;
+            c--;
+        }
+
+        r = row;
+        c = col;
+        while (r < 8 && c < 8) {
+            boolArr[r][c] = false;
+            r++;
+            c++;
+        }
+
+        r = row;
+        c = col;
+        while (r < 8 && c >= 0) {
+            boolArr[r][c] = false;
+            r++;
+            c--;
+        }
+
+        r = row;
+        c = col;
+        while (r >= 0 && c < 8) {
+            boolArr[r][c] = false;
+            r--;
+            c++;
+        }
     }
 }
