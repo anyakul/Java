@@ -29,24 +29,34 @@ public class program {
 
         HashMap<Integer, String> filterKeys = Laptop.GetFilterKeys();
         String filterKeyStr = GetFilterKey(filterKeys);
-        String[] str = filterKeyStr.split(" ");
-        Integer filterKey = Integer.parseInt(str[0]);
-        String filterValue = str[1];
+        String filterValue = "";
+        Integer filterKey = 0;
+
+        if (filterKeyStr.indexOf(" ") != -1) {
+            String[] str = filterKeyStr.split(" ");
+            filterKey = Integer.parseInt(str[0]);
+            filterValue = str[1];
+        } else {
+            filterKey = Integer.parseInt(filterKeyStr);
+        }
 
         sortLaptops(filterKey, allLaptops);
-        System.out.println(" ");
-        System.out.println("Ноутбуки подходящие под условия: ");
 
-        for (Laptop laptop : allLaptops) {
-            if (laptop.CheckLaptop(filterKey, filterValue)) {
-                laptop.PrintInfo();
+        System.out.println(" ");
+
+        if (!filterValue.isEmpty()) {
+            System.out.println("Ноутбуки подходящие под условия: ");
+            for (Laptop laptop : allLaptops) {
+                if (laptop.CheckLaptop(filterKey, filterValue)) {
+                    laptop.PrintInfo();
+                }
             }
         }
     }
 
     static String GetFilterKey(HashMap<Integer, String> filterKeys) {
         Scanner iScanner = new Scanner(System.in);
-        String str = "Выберите один из параметров фильтрации и значение фильтра: ";
+        String str = "Выберите один из параметров фильтрации и значение фильтра если надо отфильтровать: ";
         int i = 0;
 
         for (var el : filterKeys.entrySet()) {
