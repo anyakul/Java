@@ -36,22 +36,25 @@ public class program {
             laptop.PrintSortKeys();
         }
 
-      /*  String filterStr = GetFilterKey(filterKeys);
-        String[] str = filterStr.split(" ");
-        Integer filterKey = Integer.parseInt(str[0]);
-        String filterValue = str[1];
-
-        System.out.println("Ноутбуки подходящие под условия: ");
-        for (Laptop laptop : allLaptops) {
-            if (laptop.CheckLaptop(filterKey, filterValue)) {
-                laptop.PrintInfo();
-            }
-        }*/
+        /*
+         * String filterStr = GetFilterKey(filterKeys);
+         * String[] str = filterStr.split(" ");
+         * Integer filterKey = Integer.parseInt(str[0]);
+         * String filterValue = str[1];
+         * 
+         * System.out.println("Ноутбуки подходящие под условия: ");
+         * for (Laptop laptop : allLaptops) {
+         * if (laptop.CheckLaptop(filterKey, filterValue)) {
+         * laptop.PrintInfo();
+         * }
+         * }
+         */
     }
 
     static Integer GetSortKey(HashMap<Integer, String> filterKeys) {
         Scanner iScanner = new Scanner(System.in);
-        System.out.println("Выберите один из параметров фильтрации и значение фильтра если надо отфильтровать: 1 - цена, 2 - имя ");
+        System.out.println(
+                "Выберите один из параметров фильтрации и значение фильтра если надо отфильтровать: 1 - цена, 2 - имя ");
         int sortKey = iScanner.nextInt();
         iScanner.close();
 
@@ -60,7 +63,7 @@ public class program {
 
     static String GetFilterKey(HashMap<Integer, String> filterKeys) {
         Scanner iScanner = new Scanner(System.in);
-        String str = "Выберите один из параметров фильтрации: ";
+        String str = "Выберите один из параметров фильтрации и знаение: ";
         int i = 0;
 
         for (var el : filterKeys.entrySet()) {
