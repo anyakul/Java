@@ -42,6 +42,10 @@ public class Laptop {
         System.out.println(company + " " + system + " " + color + " " + price + " " + ram);
     }
 
+    public void PrintSortKeys() {
+        System.out.println(this.company + " | " + this.price);
+    }
+
     public void PrintFilterKeys(Integer key) {
         if (key == 1) {
             System.out.println(this.company + " | " + this.company);
@@ -54,10 +58,6 @@ public class Laptop {
         } else if (key == 5) {
             System.out.println(this.company + " | " + this.ram);
         }
-    }
-
-    public void PrintSortKeys() {
-        System.out.println(this.company + " | " + this.price);
     }
 
     public boolean CheckLaptop(Integer key, String val) {

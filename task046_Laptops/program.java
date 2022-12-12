@@ -28,8 +28,7 @@ public class program {
 
         HashSet<Laptop> allLaptops = new HashSet<>(Arrays.asList(laptop1, laptop2, laptop3, laptop4));
 
-        HashMap<Integer, String> filterKeys = Laptop.GetFilterKeys();
-        Integer SortKey = GetSortKey(filterKeys);
+        Integer SortKey = GetSortKey();
         List<Laptop> sortLaptop = sortLaptops(SortKey, allLaptops);
 
         for (Laptop laptop : sortLaptop) {
@@ -37,6 +36,7 @@ public class program {
         }
 
         /*
+         * HashMap<Integer, String> filterKeys = Laptop.GetFilterKeys();
          * String filterStr = GetFilterKey(filterKeys);
          * String[] str = filterStr.split(" ");
          * Integer filterKey = Integer.parseInt(str[0]);
@@ -51,7 +51,7 @@ public class program {
          */
     }
 
-    static Integer GetSortKey(HashMap<Integer, String> filterKeys) {
+    static Integer GetSortKey() {
         Scanner iScanner = new Scanner(System.in);
         System.out.println(
                 "Выберите один из параметров фильтрации: 1 - цена, 2 - имя ");
