@@ -10,6 +10,7 @@
 
 package task046_Laptops;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -28,35 +29,38 @@ public class program {
         HashSet<Laptop> allLaptops = new HashSet<>(Arrays.asList(laptop1, laptop2, laptop3, laptop4));
 
         HashMap<Integer, String> filterKeys = Laptop.GetFilterKeys();
-        String filterKeyStr = GetFilterKey(filterKeys);
-        String filterValue = "";
-        Integer filterKey = 0;
+        Integer SortKey = GetSortKey(filterKeys);
+        List<Laptop> sortLaptop = sortLaptops(SortKey, allLaptops);
 
-        if (filterKeyStr.indexOf(" ") != -1) {
-            String[] str = filterKeyStr.split(" ");
-            filterKey = Integer.parseInt(str[0]);
-            filterValue = str[1];
-        } else {
-            filterKey = Integer.parseInt(filterKeyStr);
+        for (Laptop laptop : sortLaptop) {
+            laptop.PrintSortKeys();
         }
 
-        sortLaptops(filterKey, allLaptops);
+      /*  String filterStr = GetFilterKey(filterKeys);
+        String[] str = filterStr.split(" ");
+        Integer filterKey = Integer.parseInt(str[0]);
+        String filterValue = str[1];
 
-        System.out.println(" ");
-
-        if (!filterValue.isEmpty()) {
-            System.out.println("Ноутбуки подходящие под условия: ");
-            for (Laptop laptop : allLaptops) {
-                if (laptop.CheckLaptop(filterKey, filterValue)) {
-                    laptop.PrintInfo();
-                }
+        System.out.println("Ноутбуки подходящие под условия: ");
+        for (Laptop laptop : allLaptops) {
+            if (laptop.CheckLaptop(filterKey, filterValue)) {
+                laptop.PrintInfo();
             }
-        }
+        }*/
+    }
+
+    static Integer GetSortKey(HashMap<Integer, String> filterKeys) {
+        Scanner iScanner = new Scanner(System.in);
+        System.out.println("Выберите один из параметров фильтрации и значение фильтра если надо отфильтровать: 1 - цена, 2 - имя ");
+        int sortKey = iScanner.nextInt();
+        iScanner.close();
+
+        return sortKey;
     }
 
     static String GetFilterKey(HashMap<Integer, String> filterKeys) {
         Scanner iScanner = new Scanner(System.in);
-        String str = "Выберите один из параметров фильтрации и значение фильтра если надо отфильтровать: ";
+        String str = "Выберите один из параметров фильтрации: ";
         int i = 0;
 
         for (var el : filterKeys.entrySet()) {
@@ -71,25 +75,18 @@ public class program {
         return filterKey;
     }
 
-    static void sortLaptops(Integer filterKey, HashSet<Laptop> allLaptops) {
-        if (filterKey == 4) {
-            List<Laptop> sortedLaptops = allLaptops.stream()
+    static List<Laptop> sortLaptops(Integer sortKey, HashSet<Laptop> allLaptops) {
+        List<Laptop> sortLaptop = new ArrayList<>();
+        if (sortKey == 1) {
+            sortLaptop = allLaptops.stream()
                     .sorted(Comparator.comparing(Laptop::getPrice))
                     .collect(Collectors.toList());
-            for (Laptop laptop : sortedLaptops) {
-                laptop.PrintFilterKeys(filterKey);
-            }
-        } else if (filterKey == 5) {
-            List<Laptop> sortedLaptops = allLaptops.stream()
-                    .sorted(Comparator.comparing(Laptop::getRam))
+        } else if (sortKey == 2) {
+            sortLaptop = allLaptops.stream()
+                    .sorted(Comparator.comparing(Laptop::getCompany))
                     .collect(Collectors.toList());
-            for (Laptop laptop : sortedLaptops) {
-                laptop.PrintFilterKeys(filterKey);
-            }
-        } else {
-            for (Laptop laptop : allLaptops) {
-                laptop.PrintFilterKeys(filterKey);
-            }
         }
+
+        return sortLaptop;
     }
 }

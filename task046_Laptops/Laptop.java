@@ -38,22 +38,30 @@ public class Laptop {
         return price;
     }
 
+    public Integer getCompany() {
+        return price;
+    }
+
     public void PrintInfo() {
         System.out.println(company + " " + system + " " + color + " " + price + " " + ram);
     }
 
     public void PrintFilterKeys(Integer key) {
         if (key == 1) {
-            System.out.println("Ноутбук " + this.id + " фирмы " + this.company);
+            System.out.println(this.company + " | " + this.company);
         } else if (key == 2) {
-            System.out.println("У ноутбука " + this.id + " операционная система " + this.system);
+            System.out.println(this.company + " | " + this.system);
         } else if (key == 3) {
-            System.out.println("У ноутбука " + this.id + " цвет " + this.color);
+            System.out.println(this.company + " | " + this.color);
         } else if (key == 4) {
-            System.out.println("Ноутбук " + this.id + " стоит " + this.price);
+            System.out.println(this.company + " | " + this.price);
         } else if (key == 5) {
-            System.out.println("У ноутбука " + this.id + " ОЗУ " + this.ram);
+            System.out.println(this.company + " | " + this.ram);
         }
+    }
+
+    public void PrintSortKeys() {
+        System.out.println(this.company + " | " + this.price);
     }
 
     public boolean CheckLaptop(Integer key, String val) {
