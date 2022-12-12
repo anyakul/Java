@@ -54,7 +54,7 @@ public class program {
     static Integer GetSortKey(HashMap<Integer, String> filterKeys) {
         Scanner iScanner = new Scanner(System.in);
         System.out.println(
-                "Выберите один из параметров фильтрации и значение фильтра если надо отфильтровать: 1 - цена, 2 - имя ");
+                "Выберите один из параметров фильтрации: 1 - цена, 2 - имя ");
         int sortKey = iScanner.nextInt();
         iScanner.close();
 
@@ -63,7 +63,7 @@ public class program {
 
     static String GetFilterKey(HashMap<Integer, String> filterKeys) {
         Scanner iScanner = new Scanner(System.in);
-        String str = "Выберите один из параметров фильтрации и знаение: ";
+        String str = "Выберите один из параметров фильтрации и значение: ";
         int i = 0;
 
         for (var el : filterKeys.entrySet()) {
