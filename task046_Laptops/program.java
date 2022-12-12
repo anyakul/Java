@@ -24,7 +24,7 @@ public class program {
         Laptop laptop1 = new Laptop(1, "samsung", "windows", "blue", 20000, 16);
         Laptop laptop2 = new Laptop(2, "samsung", "windows", "white", 20000, 16);
         Laptop laptop3 = new Laptop(3, "apple", "macos", "white", 40000, 8);
-        Laptop laptop4 = new Laptop(4, "Honor", "windows", "gray", 10000, 16);
+        Laptop laptop4 = new Laptop(4, "honor", "windows", "gray", 10000, 16);
 
         HashSet<Laptop> allLaptops = new HashSet<>(Arrays.asList(laptop1, laptop2, laptop3, laptop4));
 

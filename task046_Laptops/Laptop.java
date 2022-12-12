@@ -34,12 +34,8 @@ public class Laptop {
         return price;
     }
 
-    public Integer getRam() {
-        return price;
-    }
-
-    public Integer getCompany() {
-        return price;
+    public String getCompany() {
+        return company;
     }
 
     public void PrintInfo() {
