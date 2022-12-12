@@ -22,14 +22,6 @@ public class Laptop {
         ram = r;
     }
 
-    Laptop() {
-        company = "";
-        system = "";
-        color = "";
-        price = 0;
-        ram = 0;
-    }
-
     public Integer getPrice() {
         return price;
     }
