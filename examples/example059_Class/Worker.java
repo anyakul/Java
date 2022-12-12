@@ -1,4 +1,4 @@
-package examples.example058_Class;
+package examples.example059_Class;
 
 public class Worker {
     int id;
