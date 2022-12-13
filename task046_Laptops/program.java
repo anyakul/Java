@@ -13,13 +13,15 @@ package task046_Laptops;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class program {
+    public static Scanner iScanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         Laptop laptop1 = new Laptop(1, "samsung", "windows", "blue", 20000, 16);
         Laptop laptop2 = new Laptop(2, "samsung", "windows", "white", 20000, 16);
@@ -27,62 +29,61 @@ public class program {
         Laptop laptop4 = new Laptop(4, "honor", "windows", "gray", 10000, 16);
 
         HashSet<Laptop> allLaptops = new HashSet<>(Arrays.asList(laptop1, laptop2, laptop3, laptop4));
+        int option = 0;
+        StringJoiner fieldJoiner = Laptop.GetFieldString();
 
-        Integer SortKey = GetSortKey();
-        List<Laptop> sortLaptop = sortLaptops(SortKey, allLaptops);
-
-        for (Laptop laptop : sortLaptop) {
-            laptop.PrintSortKeys();
+        System.out.println(
+                "Выберите функцию программы: 1 - вывод нужных полей, 2 - сортировка");
+        if (iScanner.hasNextInt()) {
+            option = iScanner.nextInt();
         }
 
-        /*
-         * HashMap<Integer, String> filterKeys = Laptop.GetFilterKeys();
-         * String filterStr = GetFilterKey(filterKeys);
-         * String[] str = filterStr.split(" ");
-         * Integer filterKey = Integer.parseInt(str[0]);
-         * String filterValue = str[1];
-         * 
-         * System.out.println("Ноутбуки подходящие под условия: ");
-         * for (Laptop laptop : allLaptops) {
-         * if (laptop.CheckLaptop(filterKey, filterValue)) {
-         * laptop.PrintInfo();
-         * }
-         * }
-         */
+        if (option == 1) {
+            int printKey = GetPrintKey(fieldJoiner);
+
+            for (Laptop laptop : allLaptops) {
+                laptop.PrintFilterKeys(printKey);
+            }
+        } else if (option == 2) {
+            int sortKey = GetSortKey();
+            List<Laptop> sortedLaptops = sortLaptops(sortKey, allLaptops);
+
+            for (Laptop laptop : sortedLaptops) {
+                laptop.PrintInfo();
+            }
+        } else {
+            System.out.println("Неизвестная команда");
+        }
+
+        iScanner.close();
+    }
+
+    static Integer GetPrintKey(StringJoiner fieldJoiner) {
+        int printKey = 1;
+        System.out.println("Выберите какое поле вывести: " + fieldJoiner + ": ");
+        if (iScanner.hasNextInt()) {
+            printKey = iScanner.nextInt();
+        }
+
+        return printKey;
     }
 
     static Integer GetSortKey() {
-        Scanner iScanner = new Scanner(System.in);
+        int sortKey = 1;
         System.out.println(
-                "Выберите один из параметров фильтрации: 1 - цена, 2 - имя ");
-        int sortKey = iScanner.nextInt();
-        iScanner.close();
-
-        return sortKey;
-    }
-
-    static String GetFilterKey(HashMap<Integer, String> filterKeys) {
-        Scanner iScanner = new Scanner(System.in);
-        String str = "Выберите один из параметров фильтрации и значение: ";
-        int i = 0;
-
-        for (var el : filterKeys.entrySet()) {
-            str += el.getKey() + " - " + filterKeys.get(i) + ", ";
-            i++;
+                "Выберите один из параметров сортировки: 1 - цена, 2 - имя ");
+        if (iScanner.hasNextInt()) {
+            sortKey = iScanner.nextInt();
         }
 
-        System.out.println(str);
-        String filterKey = iScanner.nextLine();
-        iScanner.close();
-
-        return filterKey;
+        return sortKey;
     }
 
     static List<Laptop> sortLaptops(Integer sortKey, HashSet<Laptop> allLaptops) {
         List<Laptop> sortLaptop = new ArrayList<>();
         if (sortKey == 1) {
             sortLaptop = allLaptops.stream()
-                    .sorted(Comparator.comparing(Laptop::getPrice))
+                    .sorted(Comparator.comparing(Laptop::getPrice).reversed())
                     .collect(Collectors.toList());
         } else if (sortKey == 2) {
             sortLaptop = allLaptops.stream()
