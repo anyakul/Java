@@ -1,11 +1,11 @@
 package examples.example062_Inheriting.Ex003;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+// import java.util.ArrayList;
+// import java.util.List;
+// import java.util.Random;
 
 import examples.example062_Inheriting.Ex003.alliance.*;
-import examples.example062_Inheriting.Ex003.*;
+// import examples.example062_Inheriting.Ex003.*;
 
 public class Program {
     public static void main(String[] args) {
@@ -70,7 +70,7 @@ public class Program {
         // #endregion
 
         // #region
-        BaseHero dh = new Druid();
+        // BaseHero dh = new Druid();
         /*BaseHero*/
         Dwarf dwarf = new Dwarf();
         //dwarf.dwarf_method();
