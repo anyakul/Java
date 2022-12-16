@@ -10,7 +10,8 @@ public class HotDrink extends Drink {
 
     @Override
     public String toString() {
-        String res = String.format("id: %d, name: %s, price: %s rub, valume: %s, temperature: %s ", id, name, price, valume, temperature);
+        String res = String.format("id: %d, name: %s, price: %s rub, valume: %s, temperature: %s ", id, name, price,
+                valume, temperature);
 
         return res;
     }

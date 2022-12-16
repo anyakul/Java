@@ -22,12 +22,6 @@ public class Automat {
         }
     }
 
-    public void getProducts() {
-        for (int i = 0; i < productsLst.size(); i++) {
-            System.out.println(productsLst.get(i));
-        }
-    }
-
     public void getProduct(String name) {
         for (int i = 0; i < productsLst.size(); i++) {
             if (productsLst.get(i).getName() == name) {
