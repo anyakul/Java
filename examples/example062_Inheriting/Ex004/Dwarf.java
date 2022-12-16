@@ -8,7 +8,7 @@ public class Dwarf extends Druid {
     }
 
     public Dwarf() {
-        this("", 0);
+        this("1", 0);
         System.out.println("Вызван Dwarf()");
     }
    
