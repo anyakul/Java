@@ -1,10 +1,10 @@
 package task047_Products;
 
 public class Drink extends Product {
-    double valume;
+    protected final double valume;
 
-    public Drink(Integer id, String name, Integer price, Double valume) {
-        super(id, name, price);
+    public Drink(String name, Integer price, Double valume) {
+        super(name, price);
         this.valume = valume;
     }
 

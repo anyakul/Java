@@ -1,12 +1,13 @@
 package task047_Products;
 
 public abstract class Product {
-    public Integer id;
-    public String name;
-    public Integer price;
+    protected Integer id;
+    protected String name;
+    protected Integer price;
+    protected static int defaultIndex = 0;
 
-    Product(Integer id, String name, int price) {
-        this.id = id;
+    Product(String name, int price) {
+        this.id = defaultIndex++;
         this.name = name;
         this.price = price;
     }
@@ -28,10 +29,6 @@ public abstract class Product {
 
     public Integer getPrice() {
         return price;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setName(String name) {

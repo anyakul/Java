@@ -1,11 +1,11 @@
 package task047_Products;
 
 public class HotDrink extends Drink {
-    int temperature;
+    protected final int temperature;
 
-    public HotDrink(Integer id, String name, Integer price, Double valume, Integer temperature) {
-        super(id, name, price, valume);
-        this.valume = valume;
+    public HotDrink(String name, Integer price, Double valume, Integer temperature) {
+        super(name, price, valume);
+        this.temperature = temperature;
     }
 
     @Override

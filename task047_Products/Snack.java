@@ -1,7 +1,7 @@
 package task047_Products;
 
 public class Snack extends Product {
-    public Snack(Integer id, String name, Integer price) {
-        super(id, name, price);
+    public Snack(String name, Integer price) {
+        super(name, price);
     }
 }

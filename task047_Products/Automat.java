@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Automat {
-    private Integer id;
-    private Integer size;
-    private String name;
+    protected Integer id;
+    protected Integer size;
+    protected String name;
+    protected static int defaultIndex = 0;
     protected ArrayList<Product> productsLst = new ArrayList<>();
-    private static int defaultIndex = 0;
 
-    public Automat(Integer id, String name, Integer size) {
+    public Automat(String name, Integer size) {
         this.id = defaultIndex++;
         this.name = name;
         this.size = size;
@@ -18,16 +18,19 @@ public class Automat {
 
     public void InitProducts(Product[] product) {
         for (Product el : product) {
-            productsLst.add(el);
+            if (productsLst.size() < size) {
+                productsLst.add(el);
+            }
         }
     }
 
-    public void getProduct(String name) {
-        for (int i = 0; i < productsLst.size(); i++) {
-            if (productsLst.get(i).getName() == name) {
-                System.out.println(productsLst.get(i));
+    public Product getProduct(String name) {
+        for (Product p : productsLst) {
+            if (p.getName().equals(name)) {
+                return p;
             }
         }
+        return null;
     }
 
     @Override
@@ -51,10 +54,6 @@ public class Automat {
 
     public List<Product> getProductsLst() {
         return productsLst;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setName(String name) {
