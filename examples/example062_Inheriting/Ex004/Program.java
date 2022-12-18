@@ -11,5 +11,9 @@ public class Program {
 
         System.out.println("\nBaseHero dw3 = new Dwarf();");
         BaseHero dw3 = new Dwarf();
+
+        System.out.println(dw1.getName());
+        System.out.println(dw2.getName());
+        System.out.println(dw3.getName());
     }    
 }
