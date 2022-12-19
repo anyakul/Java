@@ -2,7 +2,7 @@ package examples.example062_Inheriting.Ex002;
 
 import java.util.Random;
 
-public class BaseHero {
+public abstract class BaseHero {
     protected static int number;
     protected static Random r;
 
@@ -39,6 +39,8 @@ public class BaseHero {
         if (this.hp - damage > 0) {
             this.hp -= damage;
         }
-        // else { die(); }
+         else { die(); }
     }
+
+    public abstract void die();
 }

@@ -1,4 +1,4 @@
-package examples.example062_Inheriting.Ex002;
+package examples.example062_Inheriting.Ex006;
  
 public class Priest extends BaseHero {
 
@@ -19,10 +19,5 @@ public class Priest extends BaseHero {
     public void attack(BaseHero target) {
         int damage = BaseHero.r.nextInt(10, 20);
         target.getDamage(damage);
-    }
-
-    @Override
-    public void die() {
-        
     }
 }

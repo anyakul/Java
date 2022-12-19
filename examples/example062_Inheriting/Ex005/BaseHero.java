@@ -1,7 +1,7 @@
-package examples.example062_Inheriting.Ex004;
+package examples.example062_Inheriting.Ex005;
 
 import java.util.Random;
-
+ 
 public class BaseHero {
     protected static int number;
     protected static Random r;
@@ -14,7 +14,7 @@ public class BaseHero {
         BaseHero.number = 0;
         BaseHero.r = new Random();
     }
- 
+
     public BaseHero(String name, int hp) {
         this.name = name;
         this.hp = hp;
@@ -23,14 +23,14 @@ public class BaseHero {
 
     public BaseHero() {
         this(String.format("Hero_Priest #%d", ++BaseHero.number),
-        BaseHero.r.nextInt(100, 200));
+                BaseHero.r.nextInt(100, 200));
     }
 
     public String getInfo() {
         return String.format("Name: %s  Hp: %d  Type: %s",
                 this.name, this.hp, this.getClass().getSimpleName());
     }
-    
+
     public void healed(int Hp) {
         this.hp = Hp + this.hp > this.maxHp ? this.maxHp : Hp + this.hp;
     }
@@ -40,5 +40,10 @@ public class BaseHero {
             this.hp -= damage;
         }
         // else { die(); }
+    }
+
+    public void Attack(BaseHero target) {
+        int damage = BaseHero.r.nextInt(10, 20);
+        target.GetDamage(damage);
     }
 }

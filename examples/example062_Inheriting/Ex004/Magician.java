@@ -1,5 +1,5 @@
-package examples.example062_Inheriting.Ex002;
- 
+package examples.example062_Inheriting.Ex004;
+
 public class Magician extends BaseHero {
 
     private int mana;
@@ -12,12 +12,14 @@ public class Magician extends BaseHero {
         this.mana = maxMana;
     }
 
-    public String getInfo() {
-        return String.format("%s  Mana: %d",super.getInfo(), this.mana);
+    public int Attack() {
+        int damage = BaseHero.r.nextInt(20, 30);
+        this.mana -= (int)(damage * 0.8);
+        if (mana < 0) return 0;
+        else return damage;
     }
 
-    @Override
-    public void die() {
-        
+    public String getInfo() {
+        return String.format("%s  Mana: %d", super.getInfo(), this.mana);
     }
 }
