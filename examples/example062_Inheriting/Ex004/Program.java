@@ -2,18 +2,19 @@ package examples.example062_Inheriting.Ex004;
 
 public class Program {
     public static void main(String[] args) {
-        // Иерархия вызова конструкторов
-        System.out.println("\nDwarf dw1 = new Dwarf()");
-        Dwarf dw1 = new Dwarf();
+        Magician hero1 = new Magician();
+        System.out.println(hero1.getInfo());
+        
+        Priest hero2 = new Priest();
+        System.out.println(hero2.getInfo());
 
-        System.out.println("\nDruid dw2 = new Dwarf();");
-        Druid dw2 = new Dwarf();
+        Priest hero3 = new Priest();
+        System.out.println(hero3.getInfo());
 
-        System.out.println("\nBaseHero dw3 = new Dwarf();");
-        BaseHero dw3 = new Dwarf();
-
-        System.out.println(dw1.getName());
-        System.out.println(dw2.getName());
-        System.out.println(dw3.getName());
-    }    
+        hero3.GetDamage(hero2.Attack());
+        hero3.GetDamage(hero3.Attack());
+        System.out.println(hero3.getInfo());
+        System.out.println(hero2.getInfo());
+        //hero3.GetDamage(hero3.Attack());
+    }
 }

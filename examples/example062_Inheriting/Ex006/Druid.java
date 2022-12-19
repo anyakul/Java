@@ -1,4 +1,4 @@
-package examples.example062_Inheriting.Ex002;
+package examples.example062_Inheriting.Ex006;
 
 public class Druid extends BaseHero {
     private int harmony;
@@ -20,10 +20,5 @@ public class Druid extends BaseHero {
         if (this.harmony >= heal) {
             target.healed(heal);
         }
-    }
-
-    @Override
-    public void die() {
-        
     }
 }

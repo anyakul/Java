@@ -1,4 +1,4 @@
-package examples.example062_Inheriting.Ex002;
+package examples.example062_Inheriting.Ex005;
  
 public class Magician extends BaseHero {
 
@@ -14,10 +14,5 @@ public class Magician extends BaseHero {
 
     public String getInfo() {
         return String.format("%s  Mana: %d",super.getInfo(), this.mana);
-    }
-
-    @Override
-    public void die() {
-        
     }
 }
