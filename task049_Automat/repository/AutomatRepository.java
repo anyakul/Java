@@ -17,7 +17,7 @@ public class AutomatRepository {
         return null;
     }
 
-    public boolean addAutomat(Automat automat) {
+    public boolean AddAutomat(Automat automat) {
         if (automatsList.contains(automat)) {
             return false;
         }

@@ -39,9 +39,9 @@ public class Main {
         Doll boy = new Doll("Кукла мальчик", 1200);
 
         AutomatRepository automatRepository = new AutomatRepository();
-        automatRepository.addAutomat(drinkSnackAutomat);
-        automatRepository.addAutomat(hotDrinkAutomat);
-        automatRepository.addAutomat(gameAutomat);
+        automatRepository.AddAutomat(drinkSnackAutomat);
+        automatRepository.AddAutomat(hotDrinkAutomat);
+        automatRepository.AddAutomat(gameAutomat);
 
         OrderRepository orderRepository = new OrderRepository();
 

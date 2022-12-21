@@ -19,12 +19,11 @@ public class AutomatController {
         Scanner scan = new Scanner(System.in);
         System.out.println("Выберите один из следующих торговых аппаратов: \n");
         GetAutomatsList getAutomatsList = automatServices.GetAutomatsList();
-        StringBuilder message = getAutomatsList.PrintAutomatList();
-        System.out.println(message);
+        getAutomatsList.printList();
         int automatNum = scan.nextInt();
         AutomatRepository automatRepository = automatServices.getAutomatRepository();
         Automat automat = automatRepository.getAutomatById(automatNum);
-        
+
         while (automat == null) {
             System.out.println("Выберите другой торговый автомат");
             automatNum = scan.nextInt();
@@ -33,8 +32,7 @@ public class AutomatController {
         if (automat != null) {
             System.out.println("Сделайте заказ набирая цифру продукта. Чтобы закончить наберите finish");
             GetProductsInAutomat getProductsInAutomatList = automatServices.getProductsInAutomat(automat);
-            message = getProductsInAutomatList.PrintProductsInAutomatList();
-            System.out.println(message);
+            getProductsInAutomatList.printList();
             scan.close();
         }
 

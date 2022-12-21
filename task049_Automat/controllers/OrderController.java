@@ -13,21 +13,22 @@ import task049_Automat.view.GetProductsInOrder;
 
 public class OrderController {
     private OrderServices orderServices;
+    OrderRepository orderRepository;
 
     public OrderController(OrderServices orderServices) {
         this.orderServices = orderServices;
+        this.orderRepository = orderServices.getOrderRepository();
     }
 
     public void doOrder(Automat automat) {
-        OrderRepository orderRepository = orderServices.getOrderRepository();
-        // Scanner iScanner = new Scanner(System.in);
+        // Scanner scan = new Scanner(System.in);
         Order order = new Order(automat);
         HashMap<Product, Integer> productsCol = automat.getProductsList();
         int[] productNums = new int[] { 5, 3, 3, 2, 6, 4, 4, 3, 7, 8, 9, 1, 1, 1, 1, 8, 7, 2, 5 };
+        // int num = scan.nextInt()
 
         for (int num : productNums) {
             Product productThing = automat.getProductById(num);
-            System.out.println(productThing);
 
             if (productThing == null) {
                 System.out.println("Такого продукта в торговом автомате нет. Выберите другой продукт.");
@@ -47,16 +48,25 @@ public class OrderController {
         }
 
         if (!order.getProducts().isEmpty()) {
-            orderRepository.addOrder(order);
+            orderRepository.AddOrder(order);
             System.out.println("Заказ успешно отправлен. Это ваш список заказов. Наберите код чтобы посмотреть.");
             GetOrderList getOrderList = orderServices.GetOrderList();
-            StringBuilder message = getOrderList.PrintOrderList();
-            System.out.println(message);
+            getOrderList.printList();
             GetProductsInOrder getProductsInAutomatList = orderServices
-                    .getProductsInOrderList(orderRepository.getOrderByCode(order.getCode()));
-            message = getProductsInAutomatList.PrintProductsInAutomatList();
+                    .getProductsInOrderList(order);
+            getProductsInAutomatList.printList();
+        } else {
+            System.out.println("Заказ пустой");
+        }
 
-            System.out.println(message);
+        // GetOrderByCode(order.getCode());
+    }
+
+    public void GetOrderByCode(int code) {
+        if (orderRepository.getOrderByCode(code) != null) {
+            GetProductsInOrder getProductsInAutomatList = orderServices
+                    .getProductsInOrderList(orderRepository.getOrderByCode(code));
+            getProductsInAutomatList.printList();
         }
     }
 

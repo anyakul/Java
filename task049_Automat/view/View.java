@@ -1,6 +1,6 @@
 package task049_Automat.view;
 
-public abstract class View {
+public abstract class View implements ViewInterface {
     protected boolean error;
     protected String errorMessage;
 

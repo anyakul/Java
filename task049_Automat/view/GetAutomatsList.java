@@ -12,7 +12,7 @@ public class GetAutomatsList extends View {
         this.automats = automats;
     }
 
-    public StringBuilder PrintAutomatList() {
+    public void printList() {
         StringBuilder res = new StringBuilder();
 
         if (error) {
@@ -23,6 +23,6 @@ public class GetAutomatsList extends View {
             }
         }
 
-        return res;
+        System.out.println(res);
     }
 }

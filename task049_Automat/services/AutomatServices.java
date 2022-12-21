@@ -14,6 +14,7 @@ public class AutomatServices {
     public AutomatServices(AutomatRepository automatRepository) {
         this.automatRepository = automatRepository;
     }
+
     public GetAutomatsList GetAutomatsList() {
         if (automatRepository.getAutomatsList().isEmpty()) {
             return new GetAutomatsList(true, "Репозиторий торговых аппаратов пустой", null);

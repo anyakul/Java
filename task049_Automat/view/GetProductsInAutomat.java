@@ -12,7 +12,7 @@ public class GetProductsInAutomat extends View {
         this.products = products;
     }
 
-    public StringBuilder PrintProductsInAutomatList() {
+    public void printList() {
         StringBuilder res = new StringBuilder();
 
         if (error) {
@@ -23,6 +23,6 @@ public class GetProductsInAutomat extends View {
             }
         }
 
-        return res;
+        System.out.println(res);
     }
 }

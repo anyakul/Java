@@ -17,7 +17,7 @@ public class OrderRepository {
         return null;
     }
 
-    public boolean addOrder(Order order) {
+    public boolean AddOrder(Order order) {
         if (ordersList.contains(order)) {
             return false;
         }

@@ -12,7 +12,7 @@ public class GetProductsInOrder extends View {
         this.products = products;
     }
 
-    public StringBuilder PrintProductsInAutomatList() {
+    public void printList() {
         StringBuilder res = new StringBuilder();
         res.append("Список продуктов в заказе: \n");
 
@@ -25,6 +25,6 @@ public class GetProductsInOrder extends View {
             }
         }
 
-        return res;
+        System.out.println(res);
     }
 }

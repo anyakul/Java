@@ -12,7 +12,7 @@ public class GetOrderList extends View {
         this.orders = orders;
     }
 
-    public StringBuilder PrintOrderList() {
+    public void printList() {
         StringBuilder res = new StringBuilder();
 
         if (error) {
@@ -23,6 +23,6 @@ public class GetOrderList extends View {
             }
         }
 
-        return res;
+        System.out.println(res);
     }
 }
