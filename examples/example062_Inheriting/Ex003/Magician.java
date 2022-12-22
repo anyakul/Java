@@ -34,16 +34,18 @@ public class Magician {
 
     public int Attack() {
         int damage = Magician.r.nextInt(20, 30);
-        this.mana -= (int)(damage * 0.8);
-        if (mana < 0) return 0;
-        else return damage;
+        this.mana -= (int) (damage * 0.8);
+        if (mana < 0)
+            return 0;
+        else
+            return damage;
     }
 
     public String getInfo() {
         return String.format("Name: %s  Hp: %d Enegry:  %d Type: %s",
                 this.name, this.hp, this.mana, this.getClass().getSimpleName());
     }
-    
+
     public void healed(int Hp) {
         this.hp = Hp + this.hp > this.maxHp ? this.maxHp : Hp + this.hp;
     }

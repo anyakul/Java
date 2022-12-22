@@ -6,7 +6,6 @@ import java.io.IOException;
 import examples.example062_Inheriting.Ex007.Document.TextDocument;
 
 public class Md extends TextFormat {
-
     @Override
     public void SaveAs(TextDocument document, String path) {
         try (FileWriter writer = new FileWriter(path + ".md", false)) {
@@ -14,7 +13,6 @@ public class Md extends TextFormat {
             writer.write(document.getData());
             writer.flush();
         } catch (IOException ex) {
-
             System.out.println(ex.getMessage());
         }
     }

@@ -1,36 +1,36 @@
 package examples.example062_Inheriting.Ex007.Document;
 
 public class TextDocument {
-
     StringBuilder sb;
+
     public TextDocument() {
         sb = new StringBuilder();
     }
 
     public TextDocument(String data) {
         this();
-        addAllText(data);        
+        addAllText(data);
     }
 
-    public void addAllText(String text){
+    public void addAllText(String text) {
         sb.append(text + "\n");
     }
 
-    public void addAllLines(String[] lines){
+    public void addAllLines(String[] lines) {
         for (String line : lines) {
             addAllText(line);
-            //sb.append(line);
+            // sb.append(line);
         }
     }
 
     // public void addAllText(String ... data){
-    //     for (String line : data) {
-    //         sb.append(line);
-    //         //addAllText(line);
-    //     }
+    // for (String line : data) {
+    // sb.append(line);
+    // //addAllText(line);
     // }
-    
-    public String getData(){
+    // }
+
+    public String getData() {
         return sb.toString();
     }
 

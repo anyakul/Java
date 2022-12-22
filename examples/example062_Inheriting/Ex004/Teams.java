@@ -12,7 +12,7 @@ public class Teams {
         System.out.printf("magicalCount: %d priestCount: %d \n", magicianCount, priestCount);
 
         Priest[] priests = new Priest[priestCount];
-        Magician[] magicians = new Magician[magicianCount]; 
+        Magician[] magicians = new Magician[magicianCount];
 
         for (int i = 0; i < priestCount; i++) {
             priests[i] = new Priest();
@@ -24,7 +24,5 @@ public class Teams {
             magicians[i] = new Magician();
             System.out.println(magicians[i].getInfo());
         }
-
     }
-
 }

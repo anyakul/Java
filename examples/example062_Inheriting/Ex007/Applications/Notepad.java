@@ -20,7 +20,7 @@ public class Notepad {
         index++;
     }
 
-    public TextDocument currentDocument(){
+    public TextDocument currentDocument() {
         return documents.get(index);
     }
 

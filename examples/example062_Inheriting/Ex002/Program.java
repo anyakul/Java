@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class Program {
     public static void main(String[] args) {
-
         // #region teams
         // abstract герой
         int teamCount = 10;
@@ -57,6 +56,5 @@ public class Program {
         System.out.println(magician.getInfo());
 
         // #endregion
-
     }
 }
