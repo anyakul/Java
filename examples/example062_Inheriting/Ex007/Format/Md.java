@@ -1,9 +1,9 @@
-package Lesson_08.Ex006.Format;
+package examples.example062_Inheriting.Ex007.Format;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Lesson_08.Ex006.Document.TextDocument;
+import examples.example062_Inheriting.Ex007.Document.TextDocument;
 
 public class Md extends TextFormat {
 

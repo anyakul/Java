@@ -1,4 +1,4 @@
-package Lesson_08.Ex006.Document;
+package examples.example062_Inheriting.Ex007.Document;
 
 public class TextDocument {
 
