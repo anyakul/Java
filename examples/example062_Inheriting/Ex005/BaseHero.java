@@ -1,7 +1,7 @@
 package examples.example062_Inheriting.Ex005;
 
 import java.util.Random;
- 
+
 public class BaseHero {
     protected static int number;
     protected static Random r;

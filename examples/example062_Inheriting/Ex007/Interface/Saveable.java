@@ -1,6 +1,6 @@
-package Lesson_08.Ex006.Interface;
+package examples.example062_Inheriting.Ex007.Interface;
 
-import Lesson_08.Ex006.Document.TextDocument;
+import examples.example062_Inheriting.Ex007.Document.TextDocument;
 
 public interface Saveable {
     void SaveAs(TextDocument document, String path);

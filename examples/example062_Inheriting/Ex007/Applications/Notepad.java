@@ -1,10 +1,10 @@
-package Lesson_08.Ex006.Applications;
+package examples.example062_Inheriting.Ex007.Applications;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Lesson_08.Ex006.Document.TextDocument;
-import Lesson_08.Ex006.Format.TextFormat;
+import examples.example062_Inheriting.Ex007.Document.TextDocument;
+import examples.example062_Inheriting.Ex007.Format.TextFormat;
 
 public class Notepad {
     private List<TextDocument> documents;
@@ -20,7 +20,7 @@ public class Notepad {
         index++;
     }
 
-    public TextDocument currentDocument(){
+    public TextDocument currentDocument() {
         return documents.get(index);
     }
 

@@ -38,8 +38,9 @@ public abstract class BaseHero {
     protected void getDamage(int damage) {
         if (this.hp - damage > 0) {
             this.hp -= damage;
+        } else {
+            die();
         }
-         else { die(); }
     }
 
     public abstract void die();

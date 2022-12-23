@@ -1,7 +1,6 @@
 package examples.example062_Inheriting.Ex004;
 
 public class Priest extends BaseHero {
-
     private int elixir;
     private int maxElixir;
 

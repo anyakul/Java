@@ -1,7 +1,6 @@
 package examples.example062_Inheriting.Ex005;
- 
-public class Magician extends BaseHero {
 
+public class Magician extends BaseHero {
     private int mana;
     private int maxMana;
 
@@ -13,6 +12,6 @@ public class Magician extends BaseHero {
     }
 
     public String getInfo() {
-        return String.format("%s  Mana: %d",super.getInfo(), this.mana);
+        return String.format("%s  Mana: %d", super.getInfo(), this.mana);
     }
 }

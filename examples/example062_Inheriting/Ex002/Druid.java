@@ -24,6 +24,6 @@ public class Druid extends BaseHero {
 
     @Override
     public void die() {
-        
+
     }
 }

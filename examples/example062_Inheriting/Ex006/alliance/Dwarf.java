@@ -8,8 +8,8 @@ public class Dwarf extends Druid {
         // возможны неточности со значениями аргументов
         // Порядок вызова конструкторов
     }
+
     public void dwarf_method() {
         System.out.println("dwarf_method");
     }
-    
 }
