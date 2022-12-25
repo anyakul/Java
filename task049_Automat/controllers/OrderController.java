@@ -13,13 +13,15 @@ import task049_Automat.view.GetProductsInOrder;
 public class OrderController {
     private OrderServices orderServices;
     OrderRepository orderRepository;
+    Automat automat;
 
-    public OrderController(OrderServices orderServices) {
+    public OrderController(OrderServices orderServices, Automat automat) {
         this.orderServices = orderServices;
         this.orderRepository = orderServices.getOrderRepository();
+        this.automat = automat;
     }
 
-    public void doOrder(Automat automat) {
+    public void doOrder() {
         Order order = new Order(automat);
         HashMap<Product, Integer> productsCol = automat.getProductsList();
         int[] productNums = new int[] { 5, 3, 3, 2, 6, 4, 4, 3, 7, 8, 9, 1, 1, 1, 1, 8, 7, 2, 5 };

@@ -1,6 +1,7 @@
 package task049_Automat.services;
 
 import task049_Automat.models.Automat;
+import task049_Automat.models.Product;
 import task049_Automat.repository.AutomatRepository;
 import task049_Automat.view.GetAutomatsList;
 import task049_Automat.view.GetProductsInAutomat;
@@ -13,7 +14,6 @@ public class AutomatServices {
      * 
      * @param automatRepository
      */
-
     public AutomatServices(AutomatRepository automatRepository) {
         this.automatRepository = automatRepository;
     }
@@ -42,6 +42,28 @@ public class AutomatServices {
         }
 
         return new GetProductsInAutomat(false, null, automat.getProductsList());
+    }
+
+    /**
+     * Функция поиска лучшего продукта в автомате
+     * 
+     * @param automat
+     * @return
+     */
+    public Product getBestProduct(Automat automat) {
+        Product bestProduct = automat.getProductById(0);
+
+        for (var el : automat.getProductsList().entrySet()) {
+            if (bestProduct == null) {
+                bestProduct = el.getKey();
+            } else {
+                if (el.getKey().compareTo(bestProduct) == -1) {
+                    bestProduct = el.getKey();
+                }
+            }
+        }
+
+        return bestProduct;
     }
 
     public AutomatRepository getAutomatRepository() {

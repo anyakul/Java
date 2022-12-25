@@ -27,7 +27,7 @@ public class OrderRepository {
      * Функция добавления заказа в репозиторий
      * 
      * @param order
-     * @return Order
+     * @return
      */
     public boolean AddOrder(Order order) {
         if (ordersList.contains(order)) {

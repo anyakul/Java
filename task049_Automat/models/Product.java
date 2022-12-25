@@ -1,9 +1,10 @@
 package task049_Automat.models;
 
-public abstract class Product {
+public abstract class Product implements ComparableProduct {
     protected final Integer id;
     protected String name;
     protected Integer price;
+    protected Double attractiveness;
     protected static int defaultIndex = 1;
 
     public Product(String name, int price) {
@@ -15,6 +16,11 @@ public abstract class Product {
     @Override
     public String toString() {
         return String.format("%s - %s, стоит %s", id, name, price);
+    }
+
+    @Override
+    public int compareTo(ComparableProduct o) {
+        return this.getAttractiveness().compareTo(o.getAttractiveness());
     }
 
     public final Integer getId() {

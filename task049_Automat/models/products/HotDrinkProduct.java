@@ -28,6 +28,11 @@ public class HotDrinkProduct extends Product {
         return res;
     }
 
+    @Override
+    public Double getAttractiveness() {
+        return Double.valueOf(temperature);
+    }
+
     public int getTemperature() {
         return temperature;
     }
