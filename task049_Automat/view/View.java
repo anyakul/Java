@@ -1,19 +1,25 @@
 package task049_Automat.view;
 
 public abstract class View implements ViewInterface {
-    protected boolean error;
-    protected String errorMessage;
+    protected final boolean error;
+    protected final String errorMessage;
 
+    /**
+     * Конструктор
+     * 
+     * @param error
+     * @param errorMessage
+     */
     public View(boolean error, String errorMessage) {
         this.error = error;
         this.errorMessage = errorMessage;
     }
 
-    public String getErrorMessage() {
+    public final String getErrorMessage() {
         return errorMessage;
     }
 
-    public boolean getError() {
+    public final boolean getError() {
         return error;
     }
 }

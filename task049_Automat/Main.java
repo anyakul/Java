@@ -24,17 +24,17 @@ public class Main {
         GameAutomat gameAutomat = new GameAutomat("Торговый автомат игрушек", 10);
 
         Drink stillWater = new Drink("Вода негазированная", 40, 0.5);
-        Drink sparklingWater = new Drink("Вода газированная", 40, 0.5);
+        Drink sparklingWater = new Drink("Вода газированная", 50, 0.5);
         Snack chips = new Snack("Чипсы", 100, 0.2);
-        Snack mars = new Snack("Mars", 100, 0.2);
+        Snack mars = new Snack("Mars", 110, 0.2);
 
         Coffee cappuccino = new Coffee("Кофе каппучино", 110, 0.5, 50);
-        Coffee espresso = new Coffee("Кофе эспрессо", 125, 0.5, 50);
-        Tea blackTea = new Tea("Чай черный", 95, 0.5, 50);
-        Tea greenTea = new Tea("Чай зелёный", 105, 0.5, 50);
+        Coffee espresso = new Coffee("Кофе эспрессо", 125, 0.5, 55);
+        Tea blackTea = new Tea("Чай черный", 95, 0.5, 90);
+        Tea greenTea = new Tea("Чай зелёный", 105, 0.5, 80);
 
-        SoftTots smallTeddyBear = new SoftTots("Плюшевый мишка", 500);
-        SoftTots bigTeddyBear = new SoftTots("Плюшевый мишка", 1000);
+        SoftTots smallTeddyBear = new SoftTots("Маленький плюшевый мишка", 500);
+        SoftTots bigTeddyBear = new SoftTots("Большой плюшевый мишка", 1000);
         Doll girl = new Doll("Кукла девочка", 1100);
         Doll boy = new Doll("Кукла мальчик", 1200);
 
@@ -65,8 +65,10 @@ public class Main {
 
         AutomatController automatController = new AutomatController(automatServices);
         Automat automat = automatController.getUserChoice();
+        automatController.CompareTwoProducts(smallTeddyBear, bigTeddyBear);
 
-        OrderController orderController = new OrderController(orderServices);
-        orderController.doOrder(automat);
+        OrderController orderController = new OrderController(orderServices, automat);
+        orderController.doOrder();
+        automatController.getBestProductInAutomat();
     }
 }

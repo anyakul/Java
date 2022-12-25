@@ -1,9 +1,6 @@
 package task049_Automat.services;
 
-import java.util.HashMap;
-
 import task049_Automat.models.Order;
-import task049_Automat.models.Product;
 import task049_Automat.repository.OrderRepository;
 import task049_Automat.view.GetOrderList;
 import task049_Automat.view.GetProductsInOrder;
@@ -15,6 +12,11 @@ public class OrderServices {
         this.orderRepository = orderRepository;
     }
 
+    /**
+     * Функция получения view для отображения списка заказов
+     * 
+     * @return
+     */
     public GetOrderList GetOrderList() {
         if (orderRepository.getOrdersList().isEmpty()) {
             return new GetOrderList(true, "Репозиторий заказов пустой", null);
@@ -22,10 +24,18 @@ public class OrderServices {
         return new GetOrderList(false, null, orderRepository.getOrdersList());
     }
 
+    /**
+     * Функция получения view для отображения списка продуктов в заказе
+     * 
+     * @param order
+     * @return
+     */
     public GetProductsInOrder getProductsInOrderList(Order order) {
-        HashMap<Product, Integer> products = order.getProducts();
+        if (order.getProducts().isEmpty()) {
+            return new GetProductsInOrder(true, "В заказе нет продуктов", null);
+        }
 
-        return new GetProductsInOrder(false, null, products);
+        return new GetProductsInOrder(false, null, order.getProducts());
     }
 
     public OrderRepository getOrderRepository() {

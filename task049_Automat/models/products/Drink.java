@@ -3,6 +3,13 @@ package task049_Automat.models.products;
 public class Drink extends DrinkSnackProduct {
     private Double valume;
 
+    /**
+     * Конструктор
+     * 
+     * @param name
+     * @param price
+     * @param valume
+     */
     public Drink(String name, Integer price, Double valume) {
         super(name, price);
         this.valume = valume;

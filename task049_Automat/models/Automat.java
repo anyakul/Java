@@ -3,25 +3,43 @@ package task049_Automat.models;
 import java.util.HashMap;
 
 public abstract class Automat {
-    protected Integer id;
+    protected final Integer id;
     protected String name;
     protected Integer size;
     protected static int defaultIndex = 1;
     protected HashMap<Product, Integer> productsList = new HashMap<>();
 
+    /**
+     * Конструктор
+     * 
+     * @param name
+     * @param size
+     */
     public Automat(String name, Integer size) {
         this.id = defaultIndex++;
         this.name = name;
         this.size = size;
     }
 
-    public void AddProduct(Product product, int num) {
+    /**
+     * Функция добавления продукта в автомат
+     * 
+     * @param product
+     * @param num
+     */
+    public final void AddProduct(Product product, int num) {
         if (productsList.size() < size && num != 0) {
             productsList.put(product, num);
         }
     }
 
-    public Product getProductById(int id) {
+    /**
+     * Функция нахождения товара в торговом автомате по id
+     * 
+     * @param id
+     * @return
+     */
+    public final Product getProductById(int id) {
         for (var product : productsList.entrySet()) {
             if (product.getKey().getId() == id) {
                 return product.getKey();
@@ -35,23 +53,23 @@ public abstract class Automat {
         return id;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public Integer getSize() {
+    public final Integer getSize() {
         return size;
     }
 
-    public HashMap<Product, Integer> getProductsList() {
+    public final HashMap<Product, Integer> getProductsList() {
         return productsList;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
     }
 
-    public void setSize(Integer size) {
+    public final void setSize(Integer size) {
         this.size = size;
     }
 }
