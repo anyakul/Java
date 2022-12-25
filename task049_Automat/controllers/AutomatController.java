@@ -27,7 +27,7 @@ public class AutomatController {
         System.out.println("Выберите один из следующих торговых аппаратов: \n");
         GetAutomatsList getAutomatsList = automatServices.GetAutomatsList();
         getAutomatsList.printList();
-        int automatNum = 1;
+        int automatNum = scan.nextInt();
         AutomatRepository automatRepository = automatServices.getAutomatRepository();
         automat = automatRepository.getAutomatById(automatNum);
 

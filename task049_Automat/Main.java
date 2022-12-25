@@ -29,9 +29,9 @@ public class Main {
         Snack mars = new Snack("Mars", 110, 0.2);
 
         Coffee cappuccino = new Coffee("Кофе каппучино", 110, 0.5, 50);
-        Coffee espresso = new Coffee("Кофе эспрессо", 125, 0.5, 50);
-        Tea blackTea = new Tea("Чай черный", 95, 0.5, 50);
-        Tea greenTea = new Tea("Чай зелёный", 105, 0.5, 50);
+        Coffee espresso = new Coffee("Кофе эспрессо", 125, 0.5, 55);
+        Tea blackTea = new Tea("Чай черный", 95, 0.5, 90);
+        Tea greenTea = new Tea("Чай зелёный", 105, 0.5, 80);
 
         SoftTots smallTeddyBear = new SoftTots("Маленький плюшевый мишка", 500);
         SoftTots bigTeddyBear = new SoftTots("Большой плюшевый мишка", 1000);
