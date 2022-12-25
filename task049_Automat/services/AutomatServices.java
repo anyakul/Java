@@ -38,7 +38,7 @@ public class AutomatServices {
      */
     public GetProductsInAutomat getProductsInAutomat(Automat automat) {
         if (automat.getProductsList().isEmpty()) {
-            return new GetProductsInAutomat(true, "В заказе нет товаров. Добавьте", null);
+            return new GetProductsInAutomat(true, "В торговом автомате нет товаров. Добавьте", null);
         }
 
         return new GetProductsInAutomat(false, null, automat.getProductsList());
