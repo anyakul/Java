@@ -11,6 +11,11 @@ import task049_Automat.view.GetProductsInAutomat;
 public class AutomatController {
     private AutomatServices automatServices;
 
+    /**
+     * Конструктор
+     * 
+     * @param automatServices
+     */
     public AutomatController(AutomatServices automatServices) {
         this.automatServices = automatServices;
     }

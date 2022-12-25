@@ -6,6 +6,14 @@ public class HotDrinkProduct extends Product {
     protected int temperature;
     protected double valume;
 
+    /**
+     * Конструктор
+     * 
+     * @param name
+     * @param price
+     * @param valume
+     * @param temperature
+     */
     public HotDrinkProduct(String name, Integer price, Double valume, Integer temperature) {
         super(name, price);
         this.valume = valume;

@@ -1,7 +1,6 @@
 package task049_Automat.controllers;
 
 import java.util.HashMap;
-// import java.util.Scanner;
 
 import task049_Automat.models.Automat;
 import task049_Automat.models.Order;
@@ -21,11 +20,9 @@ public class OrderController {
     }
 
     public void doOrder(Automat automat) {
-        // Scanner scan = new Scanner(System.in);
         Order order = new Order(automat);
         HashMap<Product, Integer> productsCol = automat.getProductsList();
         int[] productNums = new int[] { 5, 3, 3, 2, 6, 4, 4, 3, 7, 8, 9, 1, 1, 1, 1, 8, 7, 2, 5 };
-        // int num = scan.nextInt()
 
         for (int num : productNums) {
             Product productThing = automat.getProductById(num);

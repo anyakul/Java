@@ -7,6 +7,12 @@ import task049_Automat.models.Order;
 public class OrderRepository {
     private ArrayList<Order> ordersList = new ArrayList<>();
 
+    /**
+     * Функция поиска заказа по коду
+     * 
+     * @param code
+     * @return Order
+     */
     public Order getOrderByCode(Integer code) {
         for (Order order : ordersList) {
             if (order.getCode() == code) {
@@ -17,6 +23,12 @@ public class OrderRepository {
         return null;
     }
 
+    /**
+     * Функция добавления заказа в репозиторий
+     * 
+     * @param order
+     * @return Order
+     */
     public boolean AddOrder(Order order) {
         if (ordersList.contains(order)) {
             return false;

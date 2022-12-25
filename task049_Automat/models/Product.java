@@ -1,7 +1,7 @@
 package task049_Automat.models;
 
 public abstract class Product {
-    protected Integer id;
+    protected final Integer id;
     protected String name;
     protected Integer price;
     protected static int defaultIndex = 1;
@@ -17,23 +17,23 @@ public abstract class Product {
         return String.format("%s - %s, стоит %s", id, name, price);
     }
 
-    public Integer getId() {
+    public final Integer getId() {
         return id;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public Integer getPrice() {
+    public final Integer getPrice() {
         return price;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
     }
 
-    public void setPrice(Integer price) {
+    public final void setPrice(Integer price) {
         this.price = price;
     }
 }
