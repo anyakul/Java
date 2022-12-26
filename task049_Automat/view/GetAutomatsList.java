@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import task049_Automat.models.Automat;
 
 public class GetAutomatsList extends View {
-    protected ArrayList<Automat> automats;
+    private ArrayList<Automat> automats;
 
     /**
      * Конструктор
@@ -35,5 +35,9 @@ public class GetAutomatsList extends View {
         }
 
         System.out.println(res);
+    }
+
+    public ArrayList<Automat> getAutomats() {
+        return automats;
     }
 }
