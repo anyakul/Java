@@ -1,4 +1,4 @@
-package task050_ChatBot.service.tasks;
+package task049_ChatBot.service.tasks;
 
 public class LoginTask extends Task{
     public LoginTask(String text, Task next) {

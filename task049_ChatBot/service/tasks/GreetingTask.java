@@ -1,4 +1,4 @@
-package task050_ChatBot.service.tasks;
+package task049_ChatBot.service.tasks;
 
 public class GreetingTask extends Task{
     public GreetingTask(String text, Task next) {

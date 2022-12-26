@@ -1,6 +1,6 @@
-package task050_ChatBot.controlleres;
+package task049_ChatBot.controlleres;
 
-import task050_ChatBot.service.ChatBotService;
+import task049_ChatBot.service.ChatBotService;
 
 public class ChatBotController {
     private final ChatBotService chatBotService = new ChatBotService();

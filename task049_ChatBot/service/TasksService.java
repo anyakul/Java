@@ -1,11 +1,11 @@
-package task050_ChatBot.service;
-
-import task050_ChatBot.service.tasks.GreetingTask;
-import task050_ChatBot.service.tasks.LoginTask;
-import task050_ChatBot.service.tasks.PasswordTask;
-import task050_ChatBot.service.tasks.Task;
+package task049_ChatBot.service;
 
 import java.util.Iterator;
+
+import task049_ChatBot.service.tasks.GreetingTask;
+import task049_ChatBot.service.tasks.LoginTask;
+import task049_ChatBot.service.tasks.PasswordTask;
+import task049_ChatBot.service.tasks.Task;
 
 public class TasksService implements Iterable<Task> {
     private final GreetingTask greetingTask;
