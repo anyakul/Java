@@ -1,7 +1,6 @@
 package task049_Automat.models;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class Order {
     private final Integer id;
@@ -15,11 +14,11 @@ public class Order {
      * 
      * @param automat
      */
-
     public Order(Automat automat) {
-        Random rand = new Random();
         this.id = defaultIndex++;
-        this.code = rand.nextInt(100, 1000);
+        int min = 100;
+        int max = 1000;
+        this.code = (int) ((Math.random() * ++max) + min);
         this.automat = automat;
     }
 

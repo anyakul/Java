@@ -12,8 +12,8 @@ import task049_Automat.view.GetProductsInOrder;
 
 public class OrderController {
     private OrderServices orderServices;
-    OrderRepository orderRepository;
-    Automat automat;
+    private OrderRepository orderRepository;
+    private Automat automat;
 
     public OrderController(OrderServices orderServices, Automat automat) {
         this.orderServices = orderServices;
@@ -71,5 +71,13 @@ public class OrderController {
 
     public OrderServices getOrderServices() {
         return orderServices;
+    }
+
+    public OrderRepository getOrderRepository() {
+        return orderRepository;
+    }
+
+    public Automat getAutomat() {
+        return automat;
     }
 }

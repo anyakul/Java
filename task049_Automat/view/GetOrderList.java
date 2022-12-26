@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import task049_Automat.models.Order;
 
 public class GetOrderList extends View {
-    protected ArrayList<Order> orders;
+    private ArrayList<Order> orders;
 
     /**
      * Конструктор
@@ -34,5 +34,9 @@ public class GetOrderList extends View {
         }
 
         System.out.println(res);
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
     }
 }

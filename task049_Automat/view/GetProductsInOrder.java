@@ -5,7 +5,7 @@ import java.util.HashMap;
 import task049_Automat.models.Product;
 
 public class GetProductsInOrder extends View {
-    protected HashMap<Product, Integer> products;
+    private HashMap<Product, Integer> products;
 
     /**
      * Конструктор
@@ -36,5 +36,9 @@ public class GetProductsInOrder extends View {
         }
 
         System.out.println(res);
+    }
+
+    public HashMap<Product, Integer> getProducts() {
+        return products;
     }
 }
