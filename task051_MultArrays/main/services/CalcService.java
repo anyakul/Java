@@ -19,7 +19,7 @@ public class CalcService<T extends Number> {
         }
     }
 
-    private Double[] MultArrays() {
+    public Double[] MultArrays() {
         Double[] res = new Double[arr1.length];
 
         for (int i = 0; i < arr1.length; i++) {

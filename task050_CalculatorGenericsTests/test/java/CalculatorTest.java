@@ -1,25 +1,14 @@
-/* package test.java;
+package task050_CalculatorGenericsTests.test.java;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 import services.CalculatorService;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class CalculatorTest {
-
     @Test
     public void sumWhenTypeIsInteger() {
         CalculatorService<Integer> service = new CalculatorService<>();
-
-        assertEquals(service.sum(1, 2), 2);
+        double result = service.sum(1, 2);
+        Assert.assertTrue(result == 3);
     }
-
-    @Test
-    public void sumWhenBothNumberIsNull() {
-        CalculatorService<Integer> service = new CalculatorService<>();
-
-        assertEquals(service.sum(null, null), 0);
-    }
-
 }
-*/
