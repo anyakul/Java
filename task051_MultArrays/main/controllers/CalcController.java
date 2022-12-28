@@ -10,5 +10,11 @@ public class CalcController {
         CalcService<Integer> calcService1 = new CalcService<>(arr1, arr2);
         CalcView<Integer> calcView1 = calcService1.GetCalcView();
         calcView1.printList();
+
+        Double[] arr3 = new Double[] { 1.2, 2.3 };
+        Double[] arr4 = new Double[] { 3.3, 4.2 };
+        CalcService<Double> calcService2 = new CalcService<>(arr3, arr4);
+        CalcView<Double> calcView2 = calcService2.GetCalcView();
+        calcView2.printList();
     }
 }

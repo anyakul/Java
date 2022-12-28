@@ -10,6 +10,6 @@ public class CalculatorService<T extends Number> {
     }
 
     public double multiply(T num1, T num2) {
-        return num1.doubleValue() * num2.doubleValue();
+        return num1.doubleValue() * num2.doubleValue() * 100;
     }
 }

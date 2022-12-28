@@ -23,7 +23,7 @@ public class CalcService<T extends Number> {
         Double[] res = new Double[arr1.length];
 
         for (int i = 0; i < arr1.length; i++) {
-            res[i] = arr1[i].doubleValue() * arr2[i].doubleValue();
+            res[i] = Math.round(arr1[i].doubleValue() * arr2[i].doubleValue() * 100.0) / 100.0;
         }
 
         return res;

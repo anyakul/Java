@@ -11,4 +11,11 @@ public class CalculatorTest {
         double result = service.sum(1, 2);
         Assert.assertTrue(result == 3);
     }
+
+    @Test
+    public void sumWhenTypeIsDouble() {
+        CalculatorService<Double> service = new CalculatorService<>();
+        Double result = service.sum(1.2, 2.3);
+        Assert.assertTrue(result == 3.5);
+    }
 }
